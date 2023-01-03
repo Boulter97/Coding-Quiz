@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"href="style.css"  href="index.html">
+    <script src="script.js"></script>
+    <title>Code Quiz</title>
+</head>
+<body>
+<form id="quiz-form">
+<h1> Timed Code Quiz</h1>
+<p> You have <span id="timer">60</span> seconds to complete the question </p>
+
+<div id="question1">
+  <h2>Question 1</h2>
+<p> HTML stands for -  </p>
+<button type ="button" class="answer-button" id="answer-1" value="A. HighText Machine Language.">A. HighText Machine Language.</button><br> 
+<button type ="button" class="answer-button" id="answer-2" value="B. HyperText and links Markup Language.">B. HyperText and links Markup Language.</button><br>
+<button type ="button" class="answer-button" id="answer-3" value="C. HyperText Markup Language.">C. HyperText Markup Language.</button><br>
+<button type ="button" class="answer-button" id="answer-4" value="D. None of these.">D. None of these.</button><br>
+<div id ="correct-answer"> </div>
+
+
+<button type="submit" id="submit-button">Submit</button>
+
+<script>
+var timer = 60;
+var correctAnswer = "B. HyperText and links Markup Language";
+var interval = setInterval(function() {
+  timer--;
+  document.getElementById("timer").innerHTML = timer;
+  if (timer<= 0) {
+    clearInterval(interval);
+  }
+  if (timer < 0) {
+    timer = 0;
+  }
+}, 1000);
+
+document.querySelectorAll('.answer-button').forEach(button => {
+  button.addEventListener('click', function (event) {
+    if (event.target.value === correctAnswer) {
+      alert('correct Answer');
+     } else {
+      alert('incorrect answer');
+      timer -= 10;
+      document.getElementById("timer").innerHTML = timer;
+    }
+  });
+});
+
+document.getElementById("quiz-form").addEventListener("submit",
+function(event) {
+  event.preventDefault();
+  window.location.href = "question-2.html"
+
+});
+
+</script>
+</form>
+</body>
+</html>

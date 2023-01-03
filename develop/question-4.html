@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"href="style.css" href="index.html">
+    <script src="script.js"></script>
+    <title>Code Quiz</title>
+</head>
+<body>
+<form id="quiz-form">
+<h1> Timed Code Quiz</h1>
+<p> You have <span id="timer">60</span> seconds to complete the question </p>
+
+<div id=""quiestion4">
+  <h2>Question 4</h2>
+<p> Which of the following attribute is used to provide a unique name to an element?-  </p>
+<label><input type ="radio" name="q1" value="A. Class">A. Class.</label><br> 
+<label><input type ="radio" name="q1" value="B. Id.">B. Id.</label><br>
+<label><input type ="radio" name="q1" value="C. Type.">C. Type.</label><br>
+<label><input type ="radio" name="q1" value="D. None of these.">D. None of these.</label><br>
+
+
+<button type="submit">Submit</button>
+
+<script>
+    var timer = 60;
+     var interval = setInterval(function() {
+       timer--;
+       document.getElementById("timer").innerHTML = timer;
+       if (timer === 0) {
+         clearInterval(interval);
+       }
+     }, 1000);
+   </script>
+   <script>document.getElementById("quiz-form").addEventListener("submit",function(event) {
+    event.preventDefault();
+    window.location.href = "question-5.html";});
+</script>
+</form>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"href="style.css">
+    <link rel="stylesheet" href="question-1.html">
+    <script src="script.js"></script>
+    <title>Code Quiz</title>
+</head>
+<body><table id="leaderboard">
+    <tr>
+        <th>Name</th>
+        <th>Rank</th>
+        <th>Score</th>
+    </tr>
+</table>
+<form id="quiz-form">
+<h1> High Score</h1>
+
+
+</table>
+<button type="submit">Retry Quiz</button>
+<script>document.getElementById("quiz-form").addEventListener("submit",function(event) {
+    event.preventDefault();
+    window.location.href = "question-1.html";});
+</script>
+<script>
+   var leaderboard = {
+    scores: [],
+    names:[]};
+
+function updateLeaderboard(score, name) {
+    leaderboard.scores.push(score);
+    leaderboard.names.push(name);
+}
+updateLeaderboard(score, name);
+
+localStorage.setItem("leaderboard", JSON.stringify(leaderboard));
+
+   
+</script>
+</form>
+</body>
+</html>
